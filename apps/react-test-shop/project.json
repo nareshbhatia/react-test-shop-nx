@@ -1,0 +1,72 @@
+{
+  "root": "apps/react-test-shop",
+  "sourceRoot": "apps/react-test-shop/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/react-test-shop",
+        "index": "apps/react-test-shop/src/index.html",
+        "baseHref": "/",
+        "main": "apps/react-test-shop/src/main.tsx",
+        "polyfills": "apps/react-test-shop/src/polyfills.ts",
+        "tsConfig": "apps/react-test-shop/tsconfig.app.json",
+        "assets": [
+          "apps/react-test-shop/src/favicon.ico",
+          "apps/react-test-shop/src/assets"
+        ],
+        "styles": ["apps/react-test-shop/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/react-test-shop/src/environments/environment.ts",
+              "with": "apps/react-test-shop/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "react-test-shop:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "react-test-shop:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/react-test-shop/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/react-test-shop"],
+      "options": {
+        "jestConfig": "apps/react-test-shop/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
