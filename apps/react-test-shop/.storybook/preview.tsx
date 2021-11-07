@@ -11,11 +11,6 @@ import '../src/services/AxiosInterceptors';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
-  options: {
-    storySort: {
-      order: ['Home'],
-    },
-  },
 };
 
 // Start mock service worker

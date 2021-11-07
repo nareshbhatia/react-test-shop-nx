@@ -7,7 +7,7 @@ export const parameters = {
 };
 
 export const decorators = [
-  (Story) => (
+  (Story: any) => (
     <Suspense fallback={<Loading />}>
       <ErrorBoundary>
         <EnvProvider>

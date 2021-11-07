@@ -37,7 +37,12 @@
           "sourceMap": false,
           "namedChunks": false,
           "extractLicenses": true,
-          "vendorChunk": false
+          "vendorChunk": false,
+          "assets": [
+            "apps/react-test-shop/src/favicon.ico",
+            "apps/react-test-shop/src/assets",
+            "apps/react-test-shop/src/env.js"
+          ]
         }
       }
     },
