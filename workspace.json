@@ -2,6 +2,8 @@
   "version": 2,
   "projects": {
     "react-test-shop": "apps/react-test-shop",
-    "react-test-shop-e2e": "apps/react-test-shop-e2e"
+    "react-test-shop-e2e": "apps/react-test-shop-e2e",
+    "ui-core": "libs/ui-core",
+    "utils": "libs/utils"
   }
 }
