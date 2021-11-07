@@ -5,7 +5,11 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "test:lib": "nx test ui-core",
+    "test:app": "nx test react-test-shop",
+    "storybook:lib": "nx run ui-core:storybook",
+    "storybook:app": "nx run react-test-shop:storybook"
   },
   "private": true,
   "dependencies": {
