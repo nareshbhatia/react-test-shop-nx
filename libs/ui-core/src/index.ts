@@ -1,3 +1,4 @@
+export * from './lib/NotFoundPage';
 export * from './lib/Form';
 export * from './lib/Loading';
 export * from './lib/EnvProvider';

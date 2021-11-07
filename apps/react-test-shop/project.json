@@ -16,7 +16,9 @@
         "tsConfig": "apps/react-test-shop/tsconfig.app.json",
         "assets": [
           "apps/react-test-shop/src/favicon.ico",
-          "apps/react-test-shop/src/assets"
+          "apps/react-test-shop/src/assets",
+          "apps/react-test-shop/src/env.js",
+          "apps/react-test-shop/src/mockServiceWorker.js"
         ],
         "styles": ["apps/react-test-shop/src/styles.css"],
         "scripts": [],
@@ -65,6 +67,37 @@
       "options": {
         "jestConfig": "apps/react-test-shop/jest.config.js",
         "passWithNoTests": true
+      }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/react",
+        "port": 4400,
+        "config": {
+          "configFolder": "apps/react-test-shop/.storybook"
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "uiFramework": "@storybook/react",
+        "outputPath": "dist/storybook/react-test-shop",
+        "config": {
+          "configFolder": "apps/react-test-shop/.storybook"
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
       }
     }
   },

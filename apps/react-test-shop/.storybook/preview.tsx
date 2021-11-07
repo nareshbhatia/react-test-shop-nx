@@ -1,24 +1,27 @@
-import { StrictMode, Suspense } from 'react';
-import * as ReactDOM from 'react-dom';
+import { Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router } from 'react-router-dom';
-import * as yup from 'yup';
 import {
   CssBaseline,
   EnvProvider,
   ErrorBoundary,
   Loading,
 } from '@react-test-shop-nx/ui-core';
-import { App } from './App';
-import './services/AxiosInterceptors';
-import { yupLocale } from './utils';
+import '../src/services/AxiosInterceptors';
+
+export const parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+  options: {
+    storySort: {
+      order: ['Home'],
+    },
+  },
+};
 
 // Start mock service worker
-if (process.env.NODE_ENV === 'development') {
-  const { worker } = require('./mocks/browser');
-  worker.start();
-  worker.printHandlers();
-}
+const { worker } = require('../src/mocks/browser');
+worker.start();
+worker.printHandlers();
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,23 +31,19 @@ const queryClient = new QueryClient({
   },
 });
 
-// set up yup errors
-yup.setLocale(yupLocale);
-
-ReactDOM.render(
-  <StrictMode>
+export const decorators = [
+  (Story: any) => (
     <Suspense fallback={<Loading />}>
       <ErrorBoundary>
         <EnvProvider>
           <QueryClientProvider client={queryClient}>
             <Router>
               <CssBaseline />
-              <App />
+              <Story />
             </Router>
           </QueryClientProvider>
         </EnvProvider>
       </ErrorBoundary>
     </Suspense>
-  </StrictMode>,
-  document.getElementById('root')
-);
+  ),
+];
