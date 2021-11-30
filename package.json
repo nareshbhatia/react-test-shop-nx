@@ -4,7 +4,10 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
+    "start:app": "nx serve react-test-shop",
+    "start:app:prod": "nx serve react-test-shop --prod",
     "build": "nx build",
+    "build:app:prod": "nx build react-test-shop --prod",
     "test": "nx test",
     "test:lib": "nx test ui-core",
     "test:app": "nx test react-test-shop",

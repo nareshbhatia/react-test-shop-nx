@@ -1,12 +1,39 @@
+# React Test Shop Using Nx
 
+![Home Page](assets/screenshot-home.png)
 
-# ReactTestShopNx
+## Getting Started
 
-This project was generated using [Nx](https://nx.dev).
+Execute the following commands to install dependencies:
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+```sh
+yarn install
+```
 
-🔎 **Smart, Extensible Build Framework**
+Execute the following commands to run the app:
+
+```sh
+yarn start
+```
+
+Now point your browser to http://localhost:4200/.
+
+## Running In Production Mode
+
+Because MSW is disabled in production mode, you must first run an external API
+server. To do this, clone the
+[React Test Shop Server](https://github.com/nareshbhatia/react-test-shop-server)
+repository and follow the instructions there to start an API server on
+port 8080.
+
+Now build this project in production mode and start it:
+
+```sh
+yarn build:app:prod # this outputs a build at /dist/apps/react-test-shop
+yarn start:app:prod # this runs the build from dist
+```
+
+Now point your browser to http://localhost:4200/.
 
 ## Adding capabilities to your workspace
 
